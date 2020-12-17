@@ -1,5 +1,7 @@
 package pl.gallery.entities;
 
+import java.awt.image.BufferedImage;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "PG_photos")
@@ -30,6 +35,8 @@ public class Photo {
 	@ManyToOne
 	private Gallery gallery;
 	
+	@Transient
+	private MultipartFile multipartFile;
 
 	public Photo() {};
 	
@@ -69,6 +76,18 @@ public class Photo {
 
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
+	}
+
+
+
+	public MultipartFile getMultipartFile() {
+		return multipartFile;
+	}
+
+
+
+	public void setMultipartFile(MultipartFile multipartFile) {
+		this.multipartFile = multipartFile;
 	}
 	 
 	 

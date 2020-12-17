@@ -53,7 +53,7 @@ public class AdminController {
             return "add-user";
         }
              
-        userService.save(userForm);
+        userService.createNewUser(userForm);
         
         model.addAttribute("users", userRepository.findAll());
         return "users-list";

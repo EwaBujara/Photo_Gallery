@@ -25,7 +25,8 @@ public class UserService {
 	        else return false;
 	    }
 	    
-	    public void save(User user) {
+	    
+	    public void createNewUser(User user) {
 	    	Gallery gallery = new Gallery();
 	    	galleryRepository.save(gallery);    	
 	    	user.setGallery(gallery);    	
